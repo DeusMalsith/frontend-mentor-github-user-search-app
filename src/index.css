@@ -1,13 +1,270 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /* light mode colors */
+  --color-lm-primary-blue: #0079ff;
+  --color-lm-blue-gray: #697c9a;
+  --color-lm-darkblue-gray: #4b6a9b;
+  --color-lm-black: #2b3442;
+  --color-lm-light-gray: #f6f8ff;
+  --color-lm-white: #fefefe;
+
+  /* dark mode colors */
+  --color-dm-primary-blue: #0079ff;
+  --color-dm-white: #ffffff;
+  --color-dm-black: #141d2f;
+  --color-dm-darkblue: #1e2a47;
+
+  /* fonts */
+  --ff-space-mono: 'Space Mono';
+
+  font-size: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--ff-space-mono), monospace;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+h1 {
+  font-family: var(--ff-space-mono);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 3.8rem;
+}
+
+h2 {
+  font-family: var(--ff-space-mono);
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 3.3rem;
+}
+
+h3 {
+  font-family: var(--ff-space-mono);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+h4 {
+  font-family: var(--ff-space-mono);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 2.0rem;
+}
+
+/* @docs
+label: Core Remedies
+version: 0.1.0-beta.2
+note: |
+  These remedies are recommended
+  as a starter for any project.
+category: file
+*/
+
+/* @docs
+label: Box Sizing
+note: |
+  Use border-box by default, globally.
+category: global
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* @docs
+label: Line Sizing
+note: |
+  Consistent line-spacing,
+  even when inline elements have different line-heights.
+links:
+  - https://drafts.csswg.org/css-inline-3/#line-sizing-property
+category: global
+*/
+html {
+  line-sizing: normal;
+}
+
+/* @docs
+label: Body Margins
+note: |
+  Remove the tiny space around the edge of the page.
+category: global
+*/
+body {
+  margin: 0;
+}
+
+/* @docs
+label: Hidden Attribute
+note: |
+  Maintain `hidden` behaviour when overriding `display` values.
+  category: global
+*/
+[hidden] {
+  display: none;
+}
+
+/* @docs
+label: H1 Margins
+note: |
+  Keep h1 margins consistent, even when nested.
+category: typography
+*/
+h1 {
+  margin: 0.67em 0;
+}
+
+/* @docs
+label: Pre Wrapping
+note: |
+  Overflow by default is bad...
+category: typography
+*/
+pre {
+  white-space: pre-wrap;
+}
+
+/* @docs
+label: Horizontal Rule
+note: |
+  1. Solid, thin horizontal rules
+  2. Remove Firefox `color: gray`
+  3. Remove default `1px` height, and common `overflow: hidden`
+category: typography
+*/
+hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: inherit;
+  height: 0;
+  overflow: visible;
+}
+
+/* @docs
+label: Responsive Embeds
+note: |
+  1. Block display is usually what we want
+  2. The `vertical-align` removes strange space-below in case authors overwrite the display value
+  3. Responsive by default
+  4. Audio without `[controls]` remains hidden by default
+category: embedded elements
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+audio:not([controls]) {
+  display: none;
+}
+
+/* @docs
+label: Responsive Images
+note: |
+  These new elements display inline by default,
+  but that's not the expected behavior for either one.
+  This can interfere with proper layout and aspect-ratio handling.
+  1. Remove the unnecessary wrapping `picture`, while maintaining contents
+  2. Source elements have nothing to display, so we hide them entirely
+category: embedded elements
+*/
+picture {
+  display: contents;
+}
+source {
+  display: none;
+}
+
+/* @docs
+label: Aspect Ratios
+note: |
+  Maintain intrinsic aspect ratios when `max-width` is applied.
+  `iframe`, `embed`, and `object` are also embedded,
+  but have no intrinsic ratio,
+  so their `height` needs to be set explicitly.
+category: embedded elements
+*/
+img,
+svg,
+video,
+canvas {
+  height: auto;
+}
+
+/* @docs
+label: Audio Width
+note: |
+  There is no good reason elements default to 300px,
+  and audio files are unlikely to come with a width attribute.
+category: embedded elements
+*/
+audio {
+  width: 100%;
+}
+
+/* @docs
+label: Image Borders
+note: |
+  Remove the border on images inside links in IE 10 and earlier.
+category: legacy browsers
+*/
+img {
+  border-style: none;
+}
+
+/* @docs
+label: SVG Overflow
+note: |
+  Hide the overflow in IE 10 and earlier.
+category: legacy browsers
+*/
+svg {
+  overflow: hidden;
+}
+
+/* @docs
+label: HTML5 Elements
+note: |
+  Default block display on HTML5 elements.
+  For oldIE to apply this styling one needs to add some JS as well (i.e. `document.createElement("main")`)
+links:
+  - https://www.sitepoint.com/html5-older-browsers-and-the-shiv/
+category: legacy browsers
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+/* @docs
+label: Checkbox & Radio Inputs
+note: |
+  1. Add the correct box sizing in IE 10
+  2. Remove the padding in IE 10
+category: legacy browsers
+*/
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
 }
