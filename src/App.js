@@ -2,7 +2,7 @@ function App() {
   return (
     <div className="App">
 
-      devfinder
+      <h1>devfinder</h1>
 
       Light
       Dark
@@ -10,11 +10,11 @@ function App() {
       Search GitHub username...
       Search
 
-      Joined
+      <p>Joined</p>
 
-      Repos
-      Followers
-      Following
+      <h4>Repos</h4>
+      <h4>Followers</h4>
+      <h4>Following</h4>
 
     </div>
   );
