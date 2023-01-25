@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
+      <nav>
+        <p>devfinder</p>
 
-devfinder
+        <button>Light Dark</button>
+      </nav>
 
-Light
-Dark
+      <div>
+        Search GitHub username...
+        <button>Search</button>
+      </div>
 
-Search GitHub username...
-Search
-
-Joined
-
-Repos
-Followers
-Following
-
+      <div>
+        Joined
+        <div>Repos Followers Following</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
